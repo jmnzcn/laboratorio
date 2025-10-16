@@ -1,0 +1,7 @@
+# docker-compose.yml (en la carpeta raíz, elimina la línea version)
+services:
+    build: .
+    container_name: gestion_reservas
+    ports:
+      - "5002:5000"
+    restart: always

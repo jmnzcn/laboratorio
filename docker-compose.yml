@@ -1,0 +1,38 @@
+version: "3.8"
+# docker-compose.yml (en la carpeta raíz, elimina la línea version)
+services:
+
+  Usuario:
+    build: ./Usuario
+    image: pf3882_tareas_ney-usuario
+    container_name: Usuario
+    ports:
+      - "5003:5000"
+    restart: always
+    hostname: Usuario
+    environment:
+      GESTIONVUELOS_SERVICE: "http://GestionVuelos:5000"
+      GESTIONRESERVAS_SERVICE: "http://GestionReservas:5000"
+        
+
+  GestionVuelos:
+    build: ./GestionVuelos
+    image: pf3882_tareas_ney-gestionvuelos
+    container_name: GestionVuelos
+    ports:
+      - "5001:5000"
+    restart: always
+    hostname: GestionVuelos
+
+
+  GestionReservas:
+    build: ./GestionReservas
+    image: pf3882_tareas_ney-gestionreservas
+    container_name: GestionReservas
+    ports:
+      - "5002:5000"
+    restart: always
+    hostname: GestionReservas
+    environment:
+      GESTIONVUELOS_SERVICE: "http://GestionVuelos:5000"
+      GESTIONRESERVAS_SERVICE: "http://GestionReservas:5000"

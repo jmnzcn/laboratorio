@@ -1,0 +1,8 @@
+# docker-compose.yml (en la carpeta raíz, elimina la línea version)
+services:
+  gestion_vuelos:
+    build: .
+    container_name: gestion_vuelos
+    ports:
+      - "5001:5000"
+    restart: always

@@ -1,0 +1,8 @@
+# docker-compose.yml (en la carpeta raíz, elimina la línea version)
+services:
+  usuario:
+    build: .
+    container_name: usuario
+    ports:
+      - "5003:5000"
+    restart: always
